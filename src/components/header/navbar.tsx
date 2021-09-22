@@ -1,15 +1,7 @@
+import { NAMES_TO_HREF } from "@src/constants";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Dispatch, SetStateAction, useState } from "react";
-
-const namesToHref = {
-  beranda: "/",
-  "tentang kami": "/about",
-  pekerjaan: "/services",
-  "daftar proyek": "/projects",
-  galeri: "/gallery",
-  "hubungi kami": "/contact",
-};
 
 type HamburgerProps = {
   isClicked: boolean;
@@ -59,7 +51,7 @@ const NavItem = ({
           isHoveringOrCurrent ? "border-b border-primary text-primary" : ""
         } ${mobile ? "text-justify" : "text-center"}`}
       >
-        <a>{name}</a>
+        <a>{name.toLowerCase()}</a>
       </div>
     </Link>
   );
@@ -67,7 +59,7 @@ const NavItem = ({
 
 const DesktopNavbar = () => (
   <nav className="hidden md:flex flex-row justify-center">
-    {Object.entries(namesToHref).map(([name, href]) => (
+    {Object.entries(NAMES_TO_HREF).map(([name, href]) => (
       <NavItem key={name} href={href} name={name} />
     ))}
   </nav>
@@ -80,7 +72,7 @@ const MobileNavbar = () => {
     <>
       <Hamburger isClicked={isClicked} setIsClicked={setIsClicked} />
       <nav className={`shadow-md ${isClicked ? "" : "hidden"} md:hidden`}>
-        {Object.entries(namesToHref).map(([name, href]) => (
+        {Object.entries(NAMES_TO_HREF).map(([name, href]) => (
           <NavItem key={name} href={href} name={name} mobile />
         ))}
       </nav>

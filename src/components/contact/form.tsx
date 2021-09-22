@@ -85,11 +85,9 @@ const ContactForm = () => {
         onChange={handleInputChange}
         required
       ></textarea>
-      <div className="my-4">
-        <div data-netlify-recaptcha="true"></div>
-      </div>
+      <div data-netlify-recaptcha="true"></div>
       <button
-        className="bg-primary py-2 px-3 rounded text-white focus:ring-1 focus:ring-secondary"
+        className="bg-primary mt-4 py-2 px-3 rounded text-white focus:ring-1 focus:ring-secondary"
         type="submit"
       >
         <FontAwesomeIcon size="sm" icon={faPaperPlane} /> Kirim

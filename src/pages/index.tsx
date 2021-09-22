@@ -1,10 +1,15 @@
 import LandingImage from "@assets/index.png";
-import { COMPANY_NAME } from "@src/constants";
+import { COMPANY_DESCRIPTION, COMPANY_NAME } from "@src/constants";
 import type { NextPage } from "next";
+import { NextSeo } from "next-seo";
 import Image from "next/image";
 
 const Home: NextPage = () => (
   <>
+    <NextSeo
+      title={`Beranda | ${COMPANY_NAME}`}
+      description={COMPANY_DESCRIPTION}
+    />
     <div className="flex mb-4 justify-center">
       <Image
         src={LandingImage}
