@@ -46,6 +46,7 @@ const ContactForm = () => {
       name="contact"
       method="POST"
       data-netlify="true"
+      data-netlify-recaptcha="true"
       onSubmit={handleFormSubmit}
     >
       <input type="hidden" name="form-name" value="contact" />
@@ -84,15 +85,15 @@ const ContactForm = () => {
         onChange={handleInputChange}
         required
       ></textarea>
-      <div className="mt-4">
-        <button
-          className="bg-primary py-2 px-4 rounded text-white focus:ring-1 focus:ring-secondary"
-          type="submit"
-        >
-          <FontAwesomeIcon className="mr-2" icon={faPaperPlane} />
-          Kirim
-        </button>
+      <div className="my-4">
+        <div data-netlify-recaptcha="true"></div>
       </div>
+      <button
+        className="bg-primary py-2 px-3 rounded text-white focus:ring-1 focus:ring-secondary"
+        type="submit"
+      >
+        <FontAwesomeIcon size="sm" icon={faPaperPlane} /> Kirim
+      </button>
     </form>
   );
 };
