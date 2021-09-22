@@ -8,6 +8,7 @@ module.exports = {
   webpack: (config, { isServer }) => {
     if (isServer) {
       config.externals.push("_http_common");
+      config.externals.push("@prisma/client");
     }
     return config;
   },
