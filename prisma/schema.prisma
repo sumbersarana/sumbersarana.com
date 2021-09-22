@@ -1,0 +1,20 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:../src/data/projects.db"
+}
+
+model project {
+  client      String
+  location    String
+  year        Int
+  description String
+  id          Int    @id @default(autoincrement())
+
+  @@index([location], map: "projects_by_location")
+  @@index([year], map: "projects_by_year")
+  @@map("projects")
+}
